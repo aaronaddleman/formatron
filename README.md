@@ -64,3 +64,26 @@ lein cljsbuild once min
 lein new re-frame formatron +re-frisk +cider +test +garden +routes
 ```
 
+```
+SPC m s i
+```
+
+switch to the repl
+
+```
+user> (do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))
+```
+
+should be able to point browser to http://localhost:3449 and see a nice welcome screen
+
+if you have css errors:
+
+```
+lein garden auto
+```
+
+
+## Places of interest
+
+Look at ./src/cljs/formatron/core.cljs
+
