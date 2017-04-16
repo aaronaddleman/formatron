@@ -1,22 +1,30 @@
 (ns formatron.views
-    (:require [re-frame.core :as re-frame]))
+  (:require [re-frame.core :as re-frame]
+            [firebase-cljs.core :as fb]))
 
 
+;; login button
+(defn login-button []
+  (fn []
+    [:button {:on-click (fn [] (re-frame/dispatch [:login]))} (str "Login")]
+    ))
 ;; home
 
 (defn home-panel []
   (let [name (re-frame/subscribe [:name])]
     (fn []
       [:div (str "Hello from " @name ". This is the Home Page.")
+       [login-button]
        [:div [:a {:href "#/about"} "go to About Page"]]])))
 
 
 ;; about
 
 (defn about-panel []
-  (fn []
-    [:div "This is the About Page."
-     [:div [:a {:href "#/"} "go to Home Page"]]]))
+  (let [username (re-frame/subscribe [:username])]
+    (fn []
+      [:div (str "Hello: " @username )
+       [:div [:a {:href "#/"} "go to Home Page"]]])))
 
 
 ;; main

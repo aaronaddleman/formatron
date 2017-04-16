@@ -3,6 +3,12 @@
     (:require [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub
+ :username
+ (fn [db]
+   (get db :user)
+      ))
+
+(re-frame/reg-sub
  :name
  (fn [db]
    (:name db)))

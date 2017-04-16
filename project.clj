@@ -1,6 +1,7 @@
 (defproject formatron "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.229"]
+                 [org.clojure/clojurescript "1.9.521"]
+                 [degree9/firebase-cljs "1.3.0"]
                  [reagent "0.6.0"]
                  [re-frame "0.9.2"]
                  [re-frisk "0.3.2"]
