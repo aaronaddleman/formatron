@@ -9,6 +9,9 @@
               [formatron.config :as config]))
 
 
+(ns formatron.config
+  )
+
 (defn dev-setup []
   (when config/debug?
     (enable-console-print!)
@@ -25,3 +28,10 @@
   (re-frame/dispatch-sync [:init])
   (dev-setup)
   (mount-root))
+
+(defn dispatch-timer-event
+  []
+  (let [now (js/Date.)]
+    (re-frame/dispatch [:timer now])))
+
+(defonce do-timer (js/setInterval dispatch-timer-event 1000))
